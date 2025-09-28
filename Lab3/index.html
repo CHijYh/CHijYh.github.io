@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of hyperlinks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <header>
+    <div class="header-container">
+        <div id="logo">
+            <img src="image.jpg" alt="Логотип">
+        </div>
+        <div class="nav-and-title">
+            <nav>
+                <a href="#">Главная</a>
+                <a href="#">О нас</a>
+                <a href="#">Контакты</a>
+            </nav>
+            <h1>List of hyperlinks</h1>
+        </div>
+    </div>
+    </header>
+
+
+    <main>
+        <ul>
+            <li><a href="http://kubsu.ru">Абсолютная гиперссылка на главную страницу сайта КУБГУ</a></li>
+            <li><a href="https://kubsu.ru">Абсолютная гиперссылка на главную сайта kubsu.ru в протоколе https</a></li>
+            <li><a href="https://kubsu.ru"><img src="image.jpg" width = "300" alt="Цветок"></a></li>
+            <li><a href="/">Сокращённая ссылка на главную</a></li>
+            <li><a href="#fragment">Ссылка на фрагмент текущей страницы</a></li>
+            <li><a href="/about">Сокращённая ссылка на внутреннюю страницу</a></li>
+            <li><a href="https://kubsu.ru/news?category=education&year=2025&page=2">Ссылка с тремя параметрами</a></li>
+            <li><a href="https://example.com/page?id=12345">Ссылка с параметром id</a></li>
+            <li><a href="index.html">Относительная ссылка на страницу в текущем каталоге</a></li>
+            <li><a href="about/info.html">Относительная ссылка на страницу в каталоге about</a></li>
+            <li><a href="../test.html">Относительная ссылка на страницу уровнем выше</a></li>
+            <li><a href="../../something.html">Относительная ссылка на страницу двумя уровнями выше</a></li>
+            <li>Контекстная ссылка в абзаце: <p>Читайте больше на <a href="https://kubsu.ru">официальном сайте КУБГУ</a>.</p></li>
+            <li><a href="https://kubsu.ru/#news">Ссылка на фрагмент страницы стороннего сайта</a></li>
+            <li>
+            <img src="image.jpg" width="300" usemap="#map-rect-circle" alt="Т_К_Цветок">
+            <map name="map-rect-circle">
+                <area shape="circle" coords="150,125,60" href="https://example.com/circle" alt="Circle">
+                <area shape="rect" coords="34,44,260,350" href="https://example.com/rect" alt="Rectangle">
+            </map>
+            </li>
+
+            <li><a href="">Ссылка с пустым href</a></li>
+            <li><a>Ссылка без href</a></li>
+            <li><a href="https://kubsu.ru/something.html" rel="nofollow">Ссылка с запретом перехода для поисковиков</a></li>
+            <li><a href="https://example.com/private" rel="--noindex--">Ссылка, запрещённая к индексации</a></li>
+            <li>
+            <ol>
+                <li><a href="https://example.com/1" title="Первая ссылка">Первая ссылка</a></li>
+                <li><a href="https://example.com/2" title="Вторая ссылка">Вторая ссылка</a></li>
+                <li><a href="https://example.com/3" title="Третья ссылка">Третья ссылка</a></li>
+            </ol>
+            </li>
+            <li><a href="ftp://user:password@ftp.example.com/file.txt">Ссылка на файл по FTP с авторизацией</a></li>
+        </ul>
+
+        <div class="table">
+          <h1 id="h1_table">Таблица</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th rowspan="2">№</th>
+                    <th colspan="2">Информация</th>
+                    <th rowspan="2">Дата</th>
+                </tr>
+                <tr>
+                    <th>Тип</th>
+                    <th>Описание</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd-row">
+                    <td>1</td>
+                    <td>Тип 1</td>
+                    <td>Описание 1</td>
+                    <td>01.01.2025</td>
+                </tr>
+                <tr class="even-row">
+                    <td>2</td>
+                    <td>Тип 2</td>
+                    <td>Описание 2</td>
+                    <td>02.01.2025</td>
+                </tr>
+                <tr class="odd-row">
+                    <td>3</td>
+                    <td>Тип 3</td>
+                    <td>Описание 3</td>
+                    <td>03.01.2025</td>
+                </tr>
+                <tr class="even-row">
+                    <td>4</td>
+                    <td>Тип 4</td>
+                    <td>Описание 4</td>
+                    <td>04.01.2025</td>
+                </tr>
+                <tr class="odd-row">
+                    <td>5</td>
+                    <td>Тип 5</td>
+                    <td>Описание 5</td>
+                    <td>05.01.2025</td>
+                </tr>
+                <tr class="even-row">
+                    <td>6</td>
+                    <td>Тип 6</td>
+                    <td>Описание 6</td>
+                    <td>06.01.2025</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    <div class="form-section">
+        <h1 id="fragment">Форма</h1>
+        <form action="URL_отправки_данных" method="POST">
+    <div class="form-fld">
+        <label>
+            Введите ФИО 
+            <br>
+            <input type="text" name ="FIO" placeholder="Иванов Иван Иванович">
+        </label>
+    </div>
+        <br>
+    <div class="form-fld">
+        <label>
+            Введите номер телефона:
+            <br>
+            <input type="tel" name ="field-tel" placeholder="+88005553535">
+        </label>
+    </div>
+        <br>
+    <div class="form-fld">
+        <label>
+            Введите свой email:
+            <br>
+            <input name="field-email" placeholder="test@example.com" type="email">
+        </label>
+    </div>
+        <br>
+    <div class="form-fld">
+        <label>
+            Введите свою дату рождения:
+            <br>
+            <input name="Birthday" type="date">
+        </label>
+    </div>
+        <br>
+    <div class="form-fld">
+        <label>
+            Биография:
+            <br>
+            <textarea name="field-name-2" placeholder="Напишите здесь"></textarea>
+        </label>
+    </div>
+        <br>
+    <div class="form-fld">
+        <label>
+            Список:
+            <br>
+            <select name="List">
+            <option value="Python">Python</option>
+            <option value="Pascal">Pascal</option>
+            <option value="C">C</option>
+            <option value="C++">C++</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="PHP">PHP</option>
+            <option value="Java">Java</option>
+            <option value="Haskel">Haskel</option>
+            <option value="Clojure">Clojure</option>
+            <option value="Prolog">Prolog</option>
+            <option value="Scala">Scala</option>
+            </select>
+        </label>
+    </div>   
+            <br>
+            Пол
+            <br>
+        <div class="form-fld">
+            <label><input type="radio" name="radio_group_1">Мужской</label>
+            <label><input type="radio" name="radio_group_1">Женский</label>
+        </div>
+            <br>
+        <div class="form-fld">
+            С договором ознакомлен
+            <label><input type="checkbox" name="check"></label><br>
+            <button type="submit" name="submit">Сохранить</button>
+        </div>
+        </form>
+    </div>
+    </main>
+
+    <footer>
+        Author: CHijYh
+    </footer>
+</body>
+</html>
