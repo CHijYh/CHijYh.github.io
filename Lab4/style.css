@@ -1,0 +1,44 @@
+
+/* Голова,подвал */
+header,footer{
+    background-color: rgb(109, 171, 224);
+}
+/* Лого*/
+.logo-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.logo{
+    width: 80px; 
+    height: 80px;
+}
+/*Гиперссылки */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*Списки в list-group*/
+.list-group-item ol {
+  padding-left: 1.25rem;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+
+.list-group-item ol li {
+  margin-bottom: 0.25rem;
+  
+}
+.list-group-item{
+    text-align: center;
+}
+/* Font таблицы */
+th,td{
+    font-style: italic;
+}
+
