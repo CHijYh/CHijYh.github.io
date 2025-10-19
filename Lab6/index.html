@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор услуги</title>
+  <style>
+    body { 
+        font-family: Arial, sans-serif; 
+        margin: 20px; 
+    }
+    #message { 
+        margin-top: 10px;
+         font-weight: bold; 
+    }
+    .hidden { 
+        display: none; 
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Калькулятор стоимости услуги</h1>
+
+  <div>
+    <strong>Тип услуги:</strong><br>
+    <label><input type="radio" name="serviceType" value="1">Тип 1 (100 руб.)</label>
+    <br>
+    <label><input type="radio" name="serviceType" value="2">Тип 2 (200 руб.)</label>
+    <br>
+    <label><input type="radio" name="serviceType" value="3">Тип 3 (300 руб.)</label>
+  </div>
+
+  <br>
+
+  <label for="quantity">Количество:</label>
+  <input type="text" id="quantity" maxlength="3" placeholder="Введите количество">
+
+  <br>
+  <br>
+
+  <div id="optionsDiv" class="hidden">
+    <label for="options">Опции:</label>
+    <select id="options">
+      <option value="0">Базовая опция (0 руб.)</option>
+      <option value="50">Опция 1 (+50 руб. за 1 штуку)</option>
+      <option value="100">Опция 2 (+100 руб. за 1 штуку)</option>
+    </select>
+  </div>
+
+  <div id="attributeDiv" class="hidden">
+    <label><input type="checkbox" id="attribute"> Добавить свойство (+200 руб. за 1 штуку)</label>
+  </div>
+
+  <br>
+
+  <div id="message">Стоимость: 0 руб.</div>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
+
