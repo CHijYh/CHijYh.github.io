@@ -1,0 +1,54 @@
+body {
+  font-family: sans-serif;
+  background: #fafafa;
+  padding: 40px;
+  text-align: center;
+}
+
+.gallery-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slider img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev {
+  left: -50px;
+}
+
+.slick-next {
+  right: -50px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #333;
+  font-size: 30px;
+}
+
+.slick-dots {
+  bottom: -35px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #888;
+  opacity: 1;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #111;
+  opacity: 1;
+}
