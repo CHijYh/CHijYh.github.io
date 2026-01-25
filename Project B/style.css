@@ -49,7 +49,7 @@ body {
     color: var(--color-text-secondary);
 }
 
-/* --- Стили для кнопки бургера --- */
+
 .burger-menu-btn {
     background: none;
     border: none;
@@ -57,7 +57,7 @@ body {
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    z-index: 10001; /* Поверх всего */
+    z-index: 10001; 
     padding: 10px;
 }
 
@@ -65,23 +65,21 @@ body {
     display: block;
     width: 30px;
     height: 3px;
-    background-color: #F14D34; /* Оранжевый цвет */
+    background-color: #F14D34; 
     transition: 0.3s ease;
 }
 
-/* Анимация крестика при открытии */
 .burger-menu-btn.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
 .burger-menu-btn.open span:nth-child(2) { opacity: 0; }
 .burger-menu-btn.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
-/* --- Выпадающее мобильное меню --- */
 @media (max-width: 991px) {
     .mobile-dropdown-menu {
         position: absolute;
-        top: 85px; /* Сразу под хедером */
+        top: 85px; 
         left: 0;
         width: 100%;
-        background: #050c33; /* Темный фон из макета */
+        background: #050c33;
         z-index: 10000;
         max-height: 0;
         overflow: hidden;
@@ -89,7 +87,7 @@ body {
     }
 
     .mobile-dropdown-menu.active {
-        max-height: 100vh; /* Раскрываем */
+        max-height: 100vh;
     }
 
     .mobile-nav-list {
@@ -114,10 +112,10 @@ body {
     color: #F14D34;
 }
 
-/* Стили для подменю */
+
 .mobile-submenu {
     list-style: none;
-    padding-left: 20px; /* Отступ для визуальной вложенности */
+    padding-left: 20px;
     background: rgba(255, 255, 255, 0.03);
     max-height: 0;
     overflow: hidden;
@@ -125,10 +123,10 @@ body {
 }
 
 .has-submenu.open .mobile-submenu {
-    max-height: 500px; /* Достаточная высота для раскрытия */
+    max-height: 500px;
 }
 
-/* Стили стрелочки */
+
 .arrow {
     display: inline-block;
     width: 8px;
@@ -146,7 +144,7 @@ body {
     margin-bottom: -2px;
 }
 
-/* Ссылка-заголовок подменю */
+
 .submenu-toggle {
     display: flex !important;
     justify-content: space-between;
@@ -500,18 +498,18 @@ body {
     
 }
 
-/* Сетка статистики: 6 блоков */
+
 .header-stats-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки на десктопе */
-    gap: 50px 30px; /* Больше отступ сверху-снизу */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
 }
 
 /* Сетка статистики */
 .header-stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px 40px; /* Увеличенные отступы между блоками */
+    gap: 60px 40px;
 }
 
 .stat-box {
@@ -519,7 +517,7 @@ body {
     padding-left: 25px;
 }
 
-/* Оранжевая линия слева */
+
 .stat-box::before {
     content: '';
     position: absolute;
@@ -530,46 +528,41 @@ body {
     background-color: #F14D34;
 }
 
-/* Увеличенный шрифт в Stats */
+
 .stat-title {
     font-size: 42px;
     font-weight: 800;
     line-height: 1;
     margin-bottom: 10px;
     display: flex;
-    align-items: center; /* Центрирует элементы по вертикали друг относительно друга */
-    gap: 8px; /* Расстояние между текстом и кубком */
+    align-items: center; 
+    gap: 8px; 
     color: #FFFFFF !important;
 }
 
 
-/* Уменьшенное изображение (кубок) */
-/* Настройка размера кубка */
+
 .stat-icon-cup {
-    /* em привязывает размер картинки к размеру шрифта (42px) */
-    /* Значение 1.2em сделает кубок примерно на 20% больше высоты цифр */
     height: 1.2em; 
     width: auto;
     object-fit: contain;
-    
-    /* Небольшая коррекция положения, если flex-align недостаточно */
     position: relative;
     top: -2px; 
 }
 
 .stat-text {
-    font-size: 14px; /* Немного увеличили описание для читаемости */
+    font-size: 14px; 
     line-height: 1.4;
     opacity: 0.8;
 }
 
-/* Адаптивность под mobile.png */
+
 @media (max-width: 991px) {
     .header{ height: auto;}
     .header-main-layout { margin-top: 60px; }
     .header-stats-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 30px 15px; /* 2 колонки на планшете */
+        gap: 30px 15px; 
         margin-left: 50px;
         margin-top: 5px;
     }
@@ -577,16 +570,15 @@ body {
     .stat-title {
         font-size: 28px;
     }
-     /* Делаем так, чтобы статы были ниже Hero с отступом */
     .stats-column-mobile {
-        margin-top: 80px; /* Отступ блоков статистики от текста Hero */
+        margin-top: 80px;
     }
     .btn-tariff-large{ align-items: center;}
 }
 
 @media (max-width: 576px) {
     .header-stats-grid {
-        grid-template-columns: 1fr; /* 1 колонка на мобильном */
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2104,4 +2096,5 @@ body {
     .webform__contact-phone {
         font-size: 18px;
     }
+
 }
