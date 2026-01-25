@@ -2,13 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const btn = document.getElementById('toggleMenu');
     const menu = document.getElementById('mobileMenu');
 
-    // Логика основного бургер-меню
     btn.addEventListener('click', function() {
         btn.classList.toggle('open');
         menu.classList.toggle('active');
     });
 
-    // Логика раскрытия подменю
     const submenuToggle = menu.querySelector('.submenu-toggle');
     if (submenuToggle) {
         submenuToggle.addEventListener('click', function(e) {
@@ -18,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Закрытие всего меню при клике на финальные ссылки
+
     const navLinks = menu.querySelectorAll('.mobile-nav-list a:not(.submenu-toggle), .mobile-submenu a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             btn.classList.remove('open');
             menu.classList.remove('active');
-            // Сбрасываем подменю, чтобы при следующем открытии оно было закрыто
+
             document.querySelector('.has-submenu').classList.remove('open');
         });
     });
@@ -366,4 +364,5 @@ if (showMoreBtn && showMoreBtn.textContent.includes('Показать ещё')) 
             this.style.opacity = '0.7';
         }, 1500);
     });
+
 }
