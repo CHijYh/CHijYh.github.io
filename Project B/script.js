@@ -37,72 +37,72 @@ class ReviewsSlider {
             {
                 title: "Команда Drupal Coder вызвала только положительные впечатления!",
                 author: "Нуреев Александр, менеджер проекта Winamp Russian Community",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "Что-то",
                 author: "Кто-то",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "Что-то",
                 author: "Что-то",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "Что-то",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "Что-то",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "lorem",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "lorem",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "lorem",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "lorem",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "lorem",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "lorem",
                 author: "lorem",
-                avatar: "assets/images/review-avatar.png"
-            },
-            {
-                title: "Что-то",
-                author: "Кто-то",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "Что-то",
                 author: "Кто-то",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
             },
             {
                 title: "Что-то",
                 author: "Кто-то",
-                avatar: "assets/images/review-avatar.png"
+                avatar: "images/avatar.png"
+            },
+            {
+                title: "Что-то",
+                author: "Кто-то",
+                avatar: "images/avatar.png"
             }
         ];
         
