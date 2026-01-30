@@ -20,7 +20,7 @@
             </video>
         </div>
         
-        <nav class="navbar navbar-expand-lg header__top position-relative z-3 py-3">
+        <nav class="navbar navbar-expand-lg header__top position-relative z-3 py-3 d-none d-lg-block">
             <div class="container-fluid px-3 px-md-4 px-xl-5">
                 <a class="navbar-brand" href="#">
                     <img src="images/header-logo.svg" alt="Drupal-coder" height="19">
@@ -33,7 +33,7 @@
                 </button>
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-2 gap-md-3">
+                    <ul class="navbar-nav ms-lg-4 ms-xl-auto me-auto mb-2 mb-lg-0 gap-2 gap-md-3">
                         <li class="nav-item">
                             <a class="nav-link header__link" href="#support">Поддержка сайтов</a>
                         </li>
@@ -53,35 +53,23 @@
                     
                     <div class="d-flex align-items-center gap-3 gap-md-4">
                         <a href="tel:88002222673" class="header__phone text-decoration-none">8 800 222-26-73</a>
-                        <div class="header__lang d-flex align-items-center gap-1">
-                            RU
-                            <img src="images/header-lang-arrow.svg" alt="▼" class="header__lang-arrow">
+                        <div class="header__lang-container">
+                            <div class="header__lang d-flex align-items-center gap-1" id="lang-toggle">
+                                <span class="current-lang">RU</span>
+                                <img src="images/header-lang-arrow.svg" alt="▼" class="header__lang-arrow">
+                            </div>
+                            
+                            <ul class="lang-dropdown" id="lang-list" style="display: none;">
+                                <li data-value="RU">RU</li>
+                                <li data-value="EN">EN</li>
+                                <li data-value="KZ">KZ</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <div class="mobile-dropdown-menu d-lg-none" id="mobileMenu">
-                <ul class="mobile-nav-list">
-                    <li><a href="#">Поддержка Drupal</a></li>
-                    <li class="has-submenu">
-                        <a href="javascript:void(0);" class="submenu-toggle">
-                            Администрирование <span class="arrow"></span>
-                        </a>
-                        <ul class="mobile-submenu">
-                            <li><a href="#">Миграция</a></li>
-                            <li><a href="#">Бэкапы</a></li>
-                            <li><a href="#">Аудит безопасности</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Продвижение</a></li>
-                    <li><a href="#">Реклама</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Проекты</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </div>
         
     <div class="row header-main-layout">
                 <div class="col-lg-5">
@@ -110,6 +98,51 @@
                             <div class="stat-title text-white">50+</div>
                             <p class="stat-text text-white">модулей и тем в формате DrupalGive</p>
                         </div>
+
+                        <nav class="navbar-divider d-lg-none">
+                            <div class="mobile-dropdown-menu" id="mobileMenu">
+                                <ul class="mobile-nav-list">
+                                    <li><a href="#">Поддержка Drupal</a></li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:void(0);" class="submenu-toggle">
+                                            Администрирование <span class="arrow"></span>
+                                        </a>
+                                        <ul class="mobile-submenu">
+                                            <li><a href="#">Миграция</a></li>
+                                            <li><a href="#">Бэкапы</a></li>
+                                            <li><a href="#">Аудит безопасности</a></li>
+                                            <li><a href="#">Оптимизация скорости</a></li>
+                                            <li><a href="#">Переезд на HTTPS</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Продвижение</a></li>
+                                    <li><a href="#">Реклама</a></li>
+                                    <li class="has-submenu">
+                                        <a href="javascript:void(0);" class="submenu-toggle">
+                                            О нас <span class="arrow"></span>
+                                        </a>
+                                        <ul class="mobile-submenu">
+                                            <li><a href="#">Команда</a></li>
+                                            <li><a href="#">DrupalGive</a></li>
+                                            <li><a href="#">Блог</a></li>
+                                            <li><a href="#">Курсы Drupal</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Проекты</a></li>
+                                    <li><a href="#">Контакты</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="navbar-divider__content">
+                                <a href="#" class="navbar-brand">
+                                    <img src="images/header-logo.svg" alt="Drupal-coder" height="20">
+                                </a>
+                                <button class="burger-menu-btn" id="toggleMenuMobile" type="button">
+                                    <span></span><span></span><span></span>
+                                </button>
+                            </div>
+                        </nav>
+                        
                         <div class="stat-box">
                             <div class="stat-title text-white">90 000+</div>
                             <p class="stat-text text-white">часов поддержки сайтов на Drupal</p>
@@ -127,15 +160,15 @@
         <div class="container">
             <div class="row mb-4 mb-md-5">
                 <div class="col-12">
-                    <h2 class="section__title">13 лет совершенствуем<br>компетенции в Drupal<br>поддержке!</h2>
-                    <p class="section__subtitle">Разрабатываем и оптимизируем модули, расширяем<br>функциональность сайтов, обновляем дизайн</p>
+                    <h2 class="section__title section__title__sevices">13 лет совершенствуем<br>компетенции в Drupal<br>поддержке!</h2>
+                    <p class="section__subtitle section__title__sevices">Разрабатываем и оптимизируем модули, расширяем<br>функциональность сайтов, обновляем дизайн</p>
                 </div>
             </div>
             
             <div class="row g-3 g-md-4 services__grid">
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-1.svg" alt="Service 1">
                         </div>
                         <p class="service-card__text">Добавление информации на сайт, создание новых разделов</p>
@@ -144,7 +177,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-2.svg" alt="Service 2">
                         </div>
                         <p class="service-card__text">Разработка и оптимизация модулей сайта</p>
@@ -153,7 +186,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-3.svg" alt="Service 3">
                         </div>
                         <p class="service-card__text">Интеграция с CRM, 1C, платежными системами, любыми веб-сервисами</p>
@@ -162,7 +195,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-4.svg" alt="Service 4">
                         </div>
                         <p class="service-card__text">Любые доработки функционала и дизайна</p>
@@ -171,7 +204,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-5.svg" alt="Service 5">
                         </div>
                         <p class="service-card__text">Аудит и мониторинг безопасности Drupal сайтов</p>
@@ -180,7 +213,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-6.svg" alt="Service 6">
                         </div>
                         <p class="service-card__text">Миграция, импорт контента и апгрейд Drupal</p>
@@ -189,7 +222,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon  mb-3 mb-md-4">
                             <img src="images/service-icon-7.svg" alt="Service 7">
                         </div>
                         <p class="service-card__text">Оптимизация и ускорение Drupal-сайтов</p>
@@ -198,7 +231,7 @@
                 
                 <div class="col-6 col-lg-3">
                     <div class="service-card h-100">
-                        <div class="service-card__icon mx-auto mb-3 mb-md-4">
+                        <div class="service-card__icon mb-3 mb-md-4">
                             <img src="images/service-icon-8.svg" alt="Service 8">
                         </div>
                         <p class="service-card__text">Веб-маркетинг, консультации и работы по SEO</p>
@@ -209,10 +242,6 @@
     </section>
 
     <section class="support position-relative" id="support">
-        <div class="support__background position-absolute top-50 start-50 translate-middle w-100">
-            <img src="images/support-drupal-background.svg" alt="Drupal" class="support__drupal-logo w-100">
-        </div>
-        
         <div class="support__cards-section bg-white pt-4 pt-md-5">
             <div class="container">
                 <div class="row mb-4 mb-md-5">
@@ -221,7 +250,7 @@
                     </div>
                 </div>
                 
-                <div class="row g-3 g-md-4">
+                <div class="row g-3 g-md-1">
                     <div class="col-md-6 col-lg-3">
                         <div class="support-card h-100">
                             <div class="support-card__number">01.</div>
@@ -299,7 +328,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-md-6 col-lg-3">
+                    <div class="col-md-6 col-lg-3 ">
                         <div class="support-card h-100">
                             <div class="support-card__number">08.</div>
                             <h3 class="support-card__title">Удобные каналы связи</h3>
@@ -312,33 +341,35 @@
                 </div>
             </div>
         </div>
-        
-        <section class="expertise-section py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0 text-center position-relative">
-                    <img src="images/laptop.png" alt="Экспертиза" class="img-fluid expertise-main-img">
-                </div>
+    </section>
 
-                <div class="col-lg-6">
-                    <h2 class="expertise-title mb-4 text-white">Экспертиза в Drupal,<br>опыт 14 лет!</h2>
+    <section class="expertise-section">
+        <img src="images/laptop.png" alt="Laptop" class="mockup-img d-none d-lg-block">
+
+        <div class="container text-content">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6">
+                    <h1>Экспертиза в Drupal,<br>опыт 14 лет!</h1>
                     
-                    <div class="expertise-grid row g-4">
+                    <div class="row mt-4">
                         <div class="col-md-6">
-                            <div class="expertise-item">
-                                <p>Только системный подход – контроль версий, резервирование и тестирование!</p>
+                            <div class="feature-box">
+                                <p class="feature-text">Только системный подход – контроль версий, резервирование и тестирование!</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="expertise-item text-white">
-                                <p>Только Drupal сайты, не берем на поддержку сайты на других CMS!</p>
+                            <div class="feature-box">
+                                <p class="feature-text">Только Drupal сайты, не берем на поддержку сайты на других CMS!</p>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div class="container d-lg-none">
+            <img src="images/laptop.png" alt="Laptop" class="mockup-img">
+        </div>
     </section>
 
     <section class="plans py-4 py-md-5 position-relative" id="plans">
