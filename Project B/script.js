@@ -1,30 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const btn = document.getElementById('toggleMenu');
+
+    const btn = document.getElementById('toggleMenuMobile');
     const menu = document.getElementById('mobileMenu');
 
-
-    btn.addEventListener('click', function() {
-        btn.classList.toggle('open');
-        menu.classList.toggle('active');
-    });
-
-
-    const submenuToggle = menu.querySelector('.submenu-toggle');
-    if (submenuToggle) {
-        submenuToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            const parentLi = this.parentElement;
-            parentLi.classList.toggle('open');
+    if (btn && menu) {
+        btn.addEventListener('click', function() {
+            this.classList.toggle('open');
+            menu.classList.toggle('active');
         });
     }
 
-
-    const navLinks = menu.querySelectorAll('.mobile-nav-list a:not(.submenu-toggle), .mobile-submenu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            btn.classList.remove('open');
-            menu.classList.remove('active');
-            document.querySelector('.has-submenu').classList.remove('open');
+    const toggles = document.querySelectorAll('.submenu-toggle');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            parent.classList.toggle('open');
         });
     });
 });
@@ -366,3 +357,36 @@ if (showMoreBtn && showMoreBtn.textContent.includes('Показать ещё')) 
         }, 1500);
     });
 }
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const langToggle = document.getElementById('lang-toggle');
+    const langList = document.getElementById('lang-list');
+    const currentLangText = langToggle.querySelector('.current-lang');
+
+    langToggle.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        const isVisible = langList.style.display === 'block';
+        langList.style.display = isVisible ? 'none' : 'block';
+        langToggle.classList.toggle('active');
+    });
+
+
+    langList.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', () => {
+            const newLang = item.getAttribute('data-value');
+            currentLangText.textContent = newLang; 
+            
+            langList.style.display = 'none'; 
+            console.log(`Язык изменен на: ${newLang}`); 
+            
+            
+        });
+    });
+
+    document.addEventListener('click', () => {
+        langList.style.display = 'none';
+        langToggle.classList.remove('active');
+    });
+});
