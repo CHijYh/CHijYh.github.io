@@ -154,193 +154,53 @@ class ReviewsSlider {
     }
 }
 
-const contactForm = document.getElementById('contactForm');
-const formMessages = document.getElementById('formMessages');
+const form = document.getElementById('supportForm');
+const responseMessage = document.getElementById('formResponse');
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const name = this.querySelector('input[name="name"]').value.trim();
-        const phone = this.querySelector('input[name="phone"]').value.trim();
-        const email = this.querySelector('input[name="email"]').value.trim();
-        const message = this.querySelector('textarea[name="message"]').value.trim();
-        const privacy = this.querySelector('input[name="privacy"]').checked;
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        
-        if (formMessages) {
-            formMessages.innerHTML = '';
-        }
-        
-        let errors = [];
-        
-        if (!name) errors.push('имя');
-        if (!phone) errors.push('телефон');
-        if (!email) errors.push('email');
-        
-        if (errors.length > 0) {
-            showFormMessage('Пожалуйста, заполните все обязательные поля: ' + errors.join(', '), 'error');
-            return;
-        }
-        
-        if (!privacy) {
-            showFormMessage('Необходимо согласие на обработку персональных данных', 'error');
-            return;
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showFormMessage('Пожалуйста, введите корректный email', 'error');
-            return;
-        }
-        
-        const phoneRegex = /^[\d\s\+\-\(\)]{10,}$/;
-        const cleanPhone = phone.replace(/\D/g, '');
-        if (!phoneRegex.test(phone) || cleanPhone.length < 10) {
-            showFormMessage('Пожалуйста, введите корректный номер телефона (минимум 10 цифр)', 'error');
-            return;
-        }
-        
-        submitBtn.textContent = 'Отправка...';
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (submitBtn) {
+        submitBtn.innerText = 'ОТПРАВКА...';
         submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
-        submitBtn.style.cursor = 'not-allowed';
-        
-        try {
-            const formData = new FormData(this);
-            
-            formData.append('_subject', 'Новая заявка с сайта Drupal-coder');
-            formData.append('_replyto', email);
-            formData.append('_format', 'plain');
-            
-            const response = await fetch('https://formcarry.com/', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-            
-            if (response.ok) {
-                showFormMessage('Спасибо за заявку!', 'success');
-                
-                contactForm.reset();
-                
-                if (formMessages) {
-                    formMessages.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-                
-                setTimeout(() => {
-                    if (formMessages) {
-                        formMessages.innerHTML = '';
-                    }
-                }, 5000);
+    }
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+            if (responseMessage) {
+                responseMessage.innerHTML = '<p style="color: #28a745;">Спасибо! Заявка успешно отправлена.</p>';
             } else {
-                throw new Error('Ошибка при отправке формы');
+                alert('Спасибо! Заявка успешно отправлена.');
             }
-            
-        } catch (error) {
-            console.error('Form submission error:', error);
-            showFormMessage('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.', 'error');
-        } finally {
-            submitBtn.textContent = originalText;
+            form.reset();
+        } else {
+            console.log(response);
+            if (responseMessage) {
+                responseMessage.innerHTML = `<p style="color: #dc3545;">Ошибка: ${json.message}</p>`;
+            }
+        }
+    })
+    .catch(error => {
+        console.log(error);
+        if (responseMessage) {
+            responseMessage.innerHTML = '<p style="color: #dc3545;">Что-то пошло не так. Попробуйте позже.</p>';
+        }
+    })
+    .finally(() => {
+        if (submitBtn) {
+            submitBtn.innerText = 'Оставить заявку!';
             submitBtn.disabled = false;
-            submitBtn.style.opacity = '1';
-            submitBtn.style.cursor = 'pointer';
         }
     });
-}
-
-function showFormMessage(message, type = 'success') {
-    if (!formMessages) return;
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `form-message ${type}`;
-    messageDiv.textContent = message;
-    
-    formMessages.innerHTML = '';
-    formMessages.appendChild(messageDiv);
-}
-
-
-function initFormValidation() {
-    const form = document.querySelector('.webform__form');
-    if (!form) return;
-    
-    const phoneInput = form.querySelector('input[type="tel"]');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
-            let value = this.value.replace(/\D/g, '');
-            
-            if (value.length > 0) {
-                value = value.match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
-                value = !value[2] ? value[1] : value[1] + ' ' + value[2] + (value[3] ? ' ' + value[3] : '') + (value[4] ? ' ' + value[4] : '');
-            }
-            
-            this.value = value;
-        });
-    }
-    
-    const inputs = form.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-        input.addEventListener('blur', function() {
-            if (this.type === 'email' && this.value) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(this.value)) {
-                    this.style.borderColor = '#dc3545';
-                } else {
-                    this.style.borderColor = '';
-                }
-            }
-            
-            if (this.type === 'tel' && this.value) {
-                const cleanPhone = this.value.replace(/\D/g, '');
-                if (cleanPhone.length < 10) {
-                    this.style.borderColor = '#dc3545';
-                } else {
-                    this.style.borderColor = '';
-                }
-            }
-            
-            if (this.hasAttribute('required') && !this.value.trim()) {
-                this.style.borderColor = '#dc3545';
-            }
-        });
-        
-        input.addEventListener('input', function() {
-            this.style.borderColor = '';
-        });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initFormValidation();
-    new ReviewsSlider();
 });
-
-
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                if (img.dataset.src) {
-                    img.src = img.dataset.src;
-                }
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
-        });
-    }, {
-        rootMargin: '50px 0px',
-        threshold: 0.1
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
 
 const showMoreBtn = document.querySelector('.btn--outline-dark');
 if (showMoreBtn && showMoreBtn.textContent.includes('Показать ещё')) {
